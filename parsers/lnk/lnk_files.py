@@ -1,0 +1,1 @@
+"""Windows shortcut parser placeholder."""
