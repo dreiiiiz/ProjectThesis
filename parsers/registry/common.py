@@ -27,7 +27,14 @@ def open_hive(hive_path: str | Path):
             "Missing dependency: install python-registry with "
             "`pip install python-registry` before parsing registry hives."
         )
-    return Registry.Registry(str(hive_path))
+    try:
+        return Registry.Registry(str(hive_path))
+    except PermissionError as exc:
+        raise RuntimeError(
+            f"Permission denied while reading registry hive: {hive_path}. "
+            "Run the terminal as Administrator or copy the hive to a writable "
+            "local folder first, then parse the copied file."
+        ) from exc
 
 
 def get_key(registry, path: str):
@@ -132,4 +139,3 @@ def value_name(value) -> str:
     except Exception:
         return "(unknown)"
     return "(default)" if name == "" else name
-

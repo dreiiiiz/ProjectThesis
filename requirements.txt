@@ -1,1 +1,2 @@
 python-registry
+python-evtx
