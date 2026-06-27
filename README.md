@@ -1,5 +1,4 @@
 # IMAGE PARSER — Full Project Plan
-**Thesis: Windows Forensic Artifact Parser for LLM+RAG Timeline Reconstruction**
 
 ---
 
